@@ -30,7 +30,8 @@
       <a href="#ohjelma">Vaaliohjelma</a>
       <a href="#kuka">Kuka olen</a>
       <a href="#kirjoitukset">Kirjoitukset</a>
-      <a href="#yhteys" class="nav-cta">Ota yhteyttä</a>
+      <a href="#tapahtumat">Tapahtumat</a>
+      <a href="#yhteys" class="nav-cta">Lähde mukaan</a>
     </nav>
   </div>
 </header>
@@ -296,6 +297,19 @@
           <p>Paikallisten kalastusoikeudet tarvitsevat puolustajia.</p>
         </article>
       </div>
+
+      <div class="archive">
+        <h3 class="h3">Arkistosta</h3>
+        <!-- Kuvateksti: data-caption. Suurennos: data-full. -->
+        <div class="gallery gallery-2">
+          <button type="button" class="gallery-item" data-full="img/kentalla-1-iso.jpg" data-caption="" data-alt="Arkistokuva: asiakirjojen luovutus">
+            <img src="img/kentalla-1.jpg" alt="Arkistokuva: asiakirjojen luovutus" loading="lazy" width="800" height="607">
+          </button>
+          <button type="button" class="gallery-item" data-full="img/kentalla-2-iso.jpg" data-caption="" data-alt="Arkistokuva: asiakirjan luovutus kokouksessa">
+            <img src="img/kentalla-2.jpg" alt="Arkistokuva: asiakirjan luovutus kokouksessa" loading="lazy" width="716" height="800">
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -316,36 +330,68 @@
       <p class="lead narrow">Vaikuttaminen kirjoittamalla on minulle tärkeää. Tässä joitakin mielipidekirjoituksiani.</p>
 
       <div class="articles">
-        <!-- TÄYDENNÄ: linkit alkuperäisiin juttuihin sekä julkaisu ja päivämäärä -->
-        <a class="article" href="#">
+        <button type="button" class="article" data-full="img/kirjoitus-kalastusparatiisi-iso.jpg" data-alt="Mielipidekirjoitus: Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki">
           <img src="img/kirjoitus-kalastusparatiisi.jpg" alt="" loading="lazy" width="800" height="838">
-          <div class="article-body">
-            <p class="article-meta">Mielipide · <span class="todo">julkaisu, pvm</span></p>
-            <h3>Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki</h3>
-          </div>
-        </a>
-        <a class="article" href="#">
+          <span class="article-body">
+            <span class="article-meta">Mielipidekirjoitus</span>
+            <span class="article-title">Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki</span>
+            <span class="article-open">Lue kirjoitus</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-full="img/kirjoitus-tarkein-tehtava.jpg" data-alt="Mielipidekirjoitus: Maailman tärkein tehtävä, Lapin Kansa 28.8.2026">
           <img src="img/kirjoitus-tarkein-tehtava.jpg" alt="" loading="lazy" width="627" height="960">
-          <div class="article-body">
-            <p class="article-meta">Lapin Kansa · 28.8.2026</p>
-            <h3>Maailman tärkein tehtävä</h3>
-          </div>
-        </a>
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 28.8.2026</span>
+            <span class="article-title">Maailman tärkein tehtävä</span>
+            <span class="article-open">Lue kirjoitus</span>
+          </span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- KENTÄLLÄ -->
-  <section class="section section-tint">
+  <!-- Kuvien ja kirjoitusten suurennos -->
+  <dialog class="lightbox" id="lightbox" aria-label="Kuva suurennettuna">
+    <button type="button" class="lightbox-close" aria-label="Sulje">×</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption hidden></figcaption>
+    </figure>
+  </dialog>
+
+  <!-- TAPAHTUMAT -->
+  <section id="tapahtumat" class="section section-tint">
     <div class="wrap">
-      <p class="eyebrow">Kentällä</p>
+      <p class="eyebrow">Tapahtumat</p>
       <h2 class="display display-md">Tavataan!</h2>
-      <!-- TÄYDENNÄ: tulevat tapahtumat / teltta-ajat -->
-      <div class="gallery">
-        <img src="img/kampanja-2.jpg" alt="Kari Kannala ja vasemmistoliiton aktiiveja vaaliteltalla" loading="lazy" width="1200" height="900">
-        <img src="img/kampanja-1.jpg" alt="Kari Kannala vaaliteltalla" loading="lazy" width="720" height="960">
+
+      <!-- Uusi tapahtuma: kopioi <article class="event"> ja vaihda data-date (VVVV-KK-PP).
+           Menneet tapahtumat piiloutuvat automaattisesti. -->
+      <div class="events-layout">
+      <div class="events">
+        <article class="event" data-date="2026-10-02">
+          <div class="event-date" aria-hidden="true">
+            <span class="event-day">Pe</span>
+            <span class="event-num">2.10.</span>
+          </div>
+          <div class="event-info">
+            <h3>Vaalikampanjan avaus Ylitorniolla</h3>
+            <p class="event-meta">
+              <span>Perjantaina 2.10. klo 14–17</span>
+              <span>K-Supermarket Ylitornio, <a href="https://www.google.com/maps/search/?api=1&amp;query=Alkkulanraitti+79,+95600+Ylitornio" target="_blank" rel="noopener">Alkkulanraitti 79, 95600 Ylitornio</a></span>
+            </p>
+            <p>Tervetuloa tapaamaan Kari Kannalaa vaalikampanjan avaukseen. Paikan päällä on myös pientä tarjoilua.</p>
+          </div>
+        </article>
+        <p class="events-empty" hidden>Uusia tapahtumia tulossa pian – seuraa Instagramissa <a href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener">@kari_kannala</a>.</p>
       </div>
-      <img class="scenery" src="img/maisema.png" alt="" loading="lazy" width="1400" height="763">
+      <div class="event-photo">
+        <button type="button" class="gallery-item" data-full="img/kampanja-1.jpg" data-caption="Tervolan maalaismarkkinoilla Vuokko Vakkurin kanssa. Hän on vaalikampanjassani mukana." data-alt="Kari Kannala ja Vuokko Vakkuri Tervolan maalaismarkkinoilla">
+          <img src="img/kampanja-1.jpg" alt="Kari Kannala ja Vuokko Vakkuri Tervolan maalaismarkkinoilla" loading="lazy" width="720" height="960">
+        </button>
+      </div>
+      </div>
+
     </div>
   </section>
 
@@ -357,15 +403,9 @@
     <div class="wrap contact-inner">
       <div>
         <h2 class="display display-md">Lähde<br>mukaan</h2>
-        <p class="lead">Haluan rakentaa Lapin, joka ei tyydy selviytymään vaan elää omilla ehdoillaan itsetietoisena. Ota yhteyttä, tule tukiryhmään tai jaa viestiä eteenpäin.</p>
+        <p class="lead">Haluan rakentaa Lapin, joka ei tyydy selviytymään vaan elää omilla ehdoillaan itsetietoisena. Jaa viestiä eteenpäin ja tule mukaan tekemään oikeudenmukaisempaa Suomea.</p>
       </div>
-      <ul class="contact-list">
-        <!-- TÄYDENNÄ: oikeat yhteystiedot ja somelinkit -->
-        <li><span>Sähköposti</span><a href="mailto:kari@karikannala.fi" class="todo">kari@karikannala.fi</a></li>
-        <li><span>Puhelin</span><a href="tel:+358000000000" class="todo">+358 00 000 0000</a></li>
-        <li><span>Facebook</span><a href="#" class="todo">facebook.com/…</a></li>
-        <li><span>Instagram</span><a href="#" class="todo">@…</a></li>
-      </ul>
+      <img class="contact-scenery" src="img/maisema.png" alt="" loading="lazy" width="1400" height="763">
     </div>
   </section>
 
@@ -375,10 +415,14 @@
   <div class="wrap footer-inner">
     <img src="img/logo-valkoinen.png" alt="Vasemmistoliitto" class="footer-logo" width="500" height="458">
     <div>
-      <p><strong>Kari Kannala</strong> · Vasemmistoliitto · <span class="todo">vaalipiiri</span></p>
-      <!-- Vaalimainonnassa tulee näkyä maksaja -->
-      <p class="small">Maksaja: <span class="todo">täydennä</span></p>
+      <p class="footer-name"><strong>Kari Kannala</strong><span class="sep" aria-hidden="true"> · </span><span>Vasemmistoliitto</span></p>
+      <!-- Myöhemmin: vaalipiiri, ehdokasnumero ja vaalimainonnan maksaja -->
     </div>
+    <a class="social" href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener" aria-label="Kari Kannala Instagramissa">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
   </div>
 </footer>
 

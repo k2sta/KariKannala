@@ -23,3 +23,32 @@ toggleAll.addEventListener('click', () => {
   planks.forEach(p => (p.open = openAll));
   toggleAll.textContent = openAll ? 'Sulje kaikki' : 'Avaa kaikki';
 });
+
+// Kirjoitukset ja kuvat: avaa suurennettuna (data-full, data-alt, data-caption)
+const lightbox = document.getElementById('lightbox');
+const lbImg = lightbox.querySelector('img');
+const lbCap = lightbox.querySelector('figcaption');
+
+document.querySelectorAll('[data-full]').forEach(btn =>
+  btn.addEventListener('click', () => {
+    lbImg.src = btn.dataset.full;
+    lbImg.alt = btn.dataset.alt || '';
+    lbCap.textContent = btn.dataset.caption || '';
+    lbCap.hidden = !btn.dataset.caption;
+    lightbox.showModal();
+    document.body.classList.add('no-scroll');
+  })
+);
+// Sulje: ruksi, klikkaus kuvan ulkopuolelle tai Esc
+lightbox.addEventListener('click', e => { if (e.target !== lbImg && e.target !== lbCap) lightbox.close(); });
+lightbox.addEventListener('close', () => document.body.classList.remove('no-scroll'));
+
+// Tapahtumat: piilota menneet tapahtumat
+const today = new Date(); today.setHours(0, 0, 0, 0);
+const events = document.querySelectorAll('.event');
+let upcoming = 0;
+events.forEach(ev => {
+  if (new Date(ev.dataset.date + 'T23:59:59') < today) ev.hidden = true;
+  else upcoming++;
+});
+if (!upcoming) document.querySelector('.events-empty').hidden = false;
