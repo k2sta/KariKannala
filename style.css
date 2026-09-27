@@ -16,6 +16,9 @@
   --radius: 18px;
 }
 
+/* Aina vaalea teema, jotta automaattinen tumma tila ei muuta värejä */
+:root { color-scheme: only light; }
+
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
