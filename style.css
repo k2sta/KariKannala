@@ -16,8 +16,9 @@
   --radius: 18px;
 }
 
-/* Vaalea ja tumma teema (tumma: ks. "Tumma tila" tiedoston lopussa) */
-:root { color-scheme: light dark; }
+/* Vaalea teema oletuksena. Tumma teema vain kosketusnäyttölaitteilla (puhelimet,
+   tabletit), kun laitteen tumma tila on päällä – ks. "Tumma tila" tiedoston lopussa. */
+:root { color-scheme: light; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
@@ -352,14 +353,16 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ============================================================
-   Tumma tila – käytössä, kun laitteen tumma tila on päällä.
+   Tumma tila – vain kosketusnäyttölaitteilla (puhelimet, tabletit),
+   kun laitteen tumma tila on päällä. Tietokoneilla sivu on aina vaalea.
    Brändivärit pysyvät samoina: punaiset pinnat (hero, lainaus,
    yhteys, footer) säilyvät; vaaleat pinnat vaihtuvat brändin
    mustaan (#1E1E1E) ja lämpimiin tummiin sävyihin.
    Pienissä korostusteksteissä käytetään pinkkiä luettavuuden vuoksi.
    ============================================================ */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) and (hover: none) and (pointer: coarse) {
   :root {
+    color-scheme: dark;
     --page: #1E1E1E;          /* brändin musta */
     --tint: #2A2226;          /* tumma, lämmin pintasävy */
     --surface: #352B31;       /* kortit tummalla pinnalla */
@@ -397,6 +400,6 @@ body.no-scroll { overflow: hidden; }
 
   .gallery-item:focus-visible { outline-color: var(--white); }
 }
-@media (prefers-color-scheme: dark) and (max-width: 1000px) {
+@media (prefers-color-scheme: dark) and (hover: none) and (pointer: coarse) and (max-width: 1000px) {
   .nav { background: var(--page); border-bottom-color: rgba(255,255,255,.08); }
 }
