@@ -73,3 +73,39 @@ if (events.length) {
   });
   if (!upcoming) document.querySelector('.events-empty').hidden = false;
 }
+
+// Kirjoitukset (index.html): aihesuodatin ja "Näytä lisää"
+const articleCards = [...document.querySelectorAll('#articles .article')];
+const filterChips = document.querySelectorAll('.filter-chip');
+const showMore = document.getElementById('show-more');
+const PAGE_SIZE = 6;
+
+if (articleCards.length && showMore) {
+  let topic = 'kaikki';
+  let shown = PAGE_SIZE;
+
+  const render = () => {
+    const matching = articleCards.filter(c => topic === 'kaikki' || c.dataset.topic === topic);
+    articleCards.forEach(c => (c.hidden = true));
+    matching.slice(0, shown).forEach(c => (c.hidden = false));
+    const left = matching.length - shown;
+    showMore.hidden = left <= 0;
+    showMore.textContent = `Näytä lisää (${left})`;
+  };
+
+  filterChips.forEach(chip =>
+    chip.addEventListener('click', () => {
+      topic = chip.dataset.filter;
+      shown = PAGE_SIZE;
+      filterChips.forEach(c => c.setAttribute('aria-pressed', c === chip));
+      render();
+    })
+  );
+
+  showMore.addEventListener('click', () => {
+    shown += PAGE_SIZE;
+    render();
+  });
+
+  render();
+}

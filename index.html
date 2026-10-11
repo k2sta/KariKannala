@@ -24,7 +24,7 @@
   <div class="wrap header-inner">
     <a href="#top" class="brand" aria-label="Etusivulle">
       <picture>
-        <source srcset="img/logo-vaaka-valkoinen.png" media="(prefers-color-scheme: dark) and (hover: none) and (pointer: coarse)">
+        <source srcset="img/logo-vaaka-valkoinen.png" media="(prefers-color-scheme: dark) and (any-pointer: coarse)">
         <img src="img/logo-vaaka.png" alt="Vasemmistoliitto" width="700" height="169">
       </picture>
     </a>
@@ -36,7 +36,6 @@
       <a href="#teemat">Vaaliohjelma</a>
       <a href="#kuka">Kuka olen</a>
       <a href="#kirjoitukset">Kirjoitukset</a>
-      <a href="#tapahtumat">Tapahtumat</a>
       <a href="#yhteys" class="nav-cta">Lähde mukaan</a>
     </nav>
   </div>
@@ -55,6 +54,20 @@
         <div class="hero-actions">
           <a href="#teemat" class="btn btn-light">Vaaliohjelma</a>
           <a href="#yhteys" class="btn btn-outline">Lähde mukaan</a>
+        </div>
+        <div class="hero-social">
+          <span class="hero-social-label">Seuraa Karia</span>
+          <div class="socials">
+            <a class="social social-outline" href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener" aria-label="Kari Kannala – Instagram">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a class="social social-outline" href="https://www.facebook.com/profile.php?id=61594486961250" target="_blank" rel="noopener" aria-label="Kari Kannala – Facebook">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4z"/></svg>
+            </a>
+            <a class="social social-outline" href="https://www.tiktok.com/@kari.kannala" target="_blank" rel="noopener" aria-label="Kari Kannala – TikTok">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M16.6 2h-3.4v13.3a2.9 2.9 0 1 1-2.1-2.8V9a6.3 6.3 0 1 0 5.5 6.3V8.6a8 8 0 0 0 4.4 1.4V6.6a4.5 4.5 0 0 1-4.4-4.6z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
       <figure class="hero-photo">
@@ -186,25 +199,304 @@
     <div class="wrap">
       <p class="eyebrow">Kirjoitukset</p>
       <h2 class="display display-md">Vaikutan<br>kirjoittamalla</h2>
-      <p class="lead narrow">Vaikuttaminen kirjoittamalla on minulle tärkeää. Tässä joitakin mielipidekirjoituksiani.</p>
+      <p class="lead narrow">Vaikuttaminen kirjoittamalla on minulle tärkeää. Tässä mielipidekirjoituksiani ja kolumnejani aiheittain.</p>
 
-      <div class="articles">
-        <button type="button" class="article" data-full="img/kirjoitus-kalastusparatiisi-iso.jpg" data-alt="Mielipidekirjoitus: Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki">
-          <img src="img/kirjoitus-kalastusparatiisi.jpg" alt="" loading="lazy" width="800" height="838">
+      <!-- Kirjoitukset: uusi kirjoitus = kopioi yksi <button class="article"> -kortti.
+           data-topic = aiheen tunniste (sama kuin suodatinnapin data-filter).
+           Sivu näyttää aluksi 6 korttia; "Näytä lisää" tuo seuraavat. -->
+      <div class="filters" role="group" aria-label="Suodata aiheen mukaan">
+        <button type="button" class="filter-chip" data-filter="kaikki" aria-pressed="true">Kaikki</button>
+        <button type="button" class="filter-chip" data-filter="mina" aria-pressed="false">Minä</button>
+        <button type="button" class="filter-chip" data-filter="ihmisena-oleminen" aria-pressed="false">Ihmisenä oleminen</button>
+        <button type="button" class="filter-chip" data-filter="kalastus-ja-lappi" aria-pressed="false">Kalastus ja Lappi</button>
+        <button type="button" class="filter-chip" data-filter="luonto" aria-pressed="false">Luonto</button>
+        <button type="button" class="filter-chip" data-filter="oma-historiamme" aria-pressed="false">Oma historiamme</button>
+        <button type="button" class="filter-chip" data-filter="perheet" aria-pressed="false">Perheet</button>
+        <button type="button" class="filter-chip" data-filter="puolueet" aria-pressed="false">Puolueet</button>
+        <button type="button" class="filter-chip" data-filter="asuntopolitiikka" aria-pressed="false">Asuntopolitiikka</button>
+        <button type="button" class="filter-chip" data-filter="talous" aria-pressed="false">Talous</button>
+        <button type="button" class="filter-chip" data-filter="terveys" aria-pressed="false">Terveys</button>
+        <button type="button" class="filter-chip" data-filter="tyoelama" aria-pressed="false">Työelämä</button>
+        <button type="button" class="filter-chip" data-filter="yhteiskunnan-kolme-hallintajarjestelmaa" aria-pressed="false">Yhteiskunnan kolme hallintajärjestelmää</button>
+        <button type="button" class="filter-chip" data-filter="yhteiskuntafilosofia" aria-pressed="false">Yhteiskuntafilosofia</button>
+      </div>
+
+      <div class="articles" id="articles">
+        <button type="button" class="article" data-topic="mina" data-full="img/kirjoitukset/01-han-oli-vain-aiti-iso.jpg" data-alt="Hän oli vain äiti – Meän Tornionlaakso 6.5.2026" data-caption="Hän oli vain äiti · Meän Tornionlaakso 6.5.2026">
+          <img src="img/kirjoitukset/01-han-oli-vain-aiti.jpg" alt="" loading="lazy" width="480" height="300">
           <span class="article-body">
-            <span class="article-meta">Mielipidekirjoitus</span>
-            <span class="article-title">Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki</span>
-            <span class="article-open">Lue kirjoitus</span>
+            <span class="article-meta">Meän Tornionlaakso · 6.5.2026</span>
+            <span class="article-title">Hän oli vain äiti</span>
+            <span class="article-topic">Minä</span>
           </span>
         </button>
-        <button type="button" class="article" data-full="img/kirjoitus-tarkein-tehtava.jpg" data-alt="Mielipidekirjoitus: Maailman tärkein tehtävä, Lapin Kansa 28.8.2026">
-          <img src="img/kirjoitus-tarkein-tehtava.jpg" alt="" loading="lazy" width="627" height="960">
+        <button type="button" class="article" data-topic="mina" data-full="img/kirjoitukset/02-vaimon-ostoa-ja-seksivalistusta-iso.jpg" data-alt="Vaimon ostoa ja seksivalistusta – Lounais-Lappi 16.3.2019" data-caption="Vaimon ostoa ja seksivalistusta · Lounais-Lappi 16.3.2019">
+          <img src="img/kirjoitukset/02-vaimon-ostoa-ja-seksivalistusta.jpg" alt="" loading="lazy" width="480" height="220">
           <span class="article-body">
-            <span class="article-meta">Lapin Kansa · 28.8.2026</span>
+            <span class="article-meta">Lounais-Lappi · 16.3.2019</span>
+            <span class="article-title">Vaimon ostoa ja seksivalistusta</span>
+            <span class="article-topic">Minä</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="mina" data-full="img/kirjoitukset/03-yllattava-loytoretki-iso.jpg" data-alt="Yllättävä löytöretki – Lounais-Lappi 18.9.2024" data-caption="Yllättävä löytöretki · Lounais-Lappi 18.9.2024">
+          <img src="img/kirjoitukset/03-yllattava-loytoretki.jpg" alt="" loading="lazy" width="480" height="210">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 18.9.2024</span>
+            <span class="article-title">Yllättävä löytöretki</span>
+            <span class="article-topic">Minä</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="ihmisena-oleminen" data-full="img/kirjoitukset/04-maailman-tarkein-tehtava-iso.jpg" data-alt="Maailman tärkein tehtävä – Meän Tornionlaakso 15.11.2023" data-caption="Maailman tärkein tehtävä · Meän Tornionlaakso 15.11.2023">
+          <img src="img/kirjoitukset/04-maailman-tarkein-tehtava.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 15.11.2023</span>
             <span class="article-title">Maailman tärkein tehtävä</span>
-            <span class="article-open">Lue kirjoitus</span>
+            <span class="article-topic">Ihmisenä oleminen</span>
           </span>
         </button>
+        <button type="button" class="article" data-topic="ihmisena-oleminen" data-full="img/kirjoitukset/05-pohdintoja-ihmisen-perustarpeista-iso.jpg" data-alt="Pohdintoja ihmisen perustarpeista – Meän Tornionlaakso 30.12.2021" data-caption="Pohdintoja ihmisen perustarpeista · Meän Tornionlaakso 30.12.2021">
+          <img src="img/kirjoitukset/05-pohdintoja-ihmisen-perustarpeista.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 30.12.2021</span>
+            <span class="article-title">Pohdintoja ihmisen perustarpeista</span>
+            <span class="article-topic">Ihmisenä oleminen</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="ihmisena-oleminen" data-full="img/kirjoitukset/06-mielen-vapaus-iso.jpg" data-alt="Mielen vapaus – Lounais-Lappi 7.9.2022" data-caption="Mielen vapaus · Lounais-Lappi 7.9.2022">
+          <img src="img/kirjoitukset/06-mielen-vapaus.jpg" alt="" loading="lazy" width="480" height="224">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 7.9.2022</span>
+            <span class="article-title">Mielen vapaus</span>
+            <span class="article-topic">Ihmisenä oleminen</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="kalastus-ja-lappi" data-full="img/kirjoitukset/07-kalat-tarkea-osa-ruokaturvaa-iso.jpg" data-alt="Kalat tärkeä osa ruokaturvaa – Kaleva 13.6.2022" data-caption="Kalat tärkeä osa ruokaturvaa · Kaleva 13.6.2022">
+          <img src="img/kirjoitukset/07-kalat-tarkea-osa-ruokaturvaa.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 13.6.2022</span>
+            <span class="article-title">Kalat tärkeä osa ruokaturvaa</span>
+            <span class="article-topic">Kalastus ja Lappi</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="kalastus-ja-lappi" data-full="img/kirjoitukset/08-unelmani-on-etta-vierekkain-olisi-kaksi-iso.jpg" data-alt="Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki – Tunturi-Lappi 26.8.2026" data-caption="Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki · Tunturi-Lappi 26.8.2026">
+          <img src="img/kirjoitukset/08-unelmani-on-etta-vierekkain-olisi-kaksi.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Tunturi-Lappi · 26.8.2026</span>
+            <span class="article-title">Unelmani on, että vierekkäin olisi kaksi kalastusparatiisia, Tornion-Muonionjoki ja Ounasjoki</span>
+            <span class="article-topic">Kalastus ja Lappi</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="kalastus-ja-lappi" data-full="img/kirjoitukset/09-kalastajia-suojellaan-kalastukselta-iso.jpg" data-alt="Kalastajia suojellaan kalastukselta – Tunturi-Lappi 8.7.2026" data-caption="Kalastajia suojellaan kalastukselta · Tunturi-Lappi 8.7.2026">
+          <img src="img/kirjoitukset/09-kalastajia-suojellaan-kalastukselta.jpg" alt="" loading="lazy" width="480" height="217">
+          <span class="article-body">
+            <span class="article-meta">Tunturi-Lappi · 8.7.2026</span>
+            <span class="article-title">Kalastajia suojellaan kalastukselta</span>
+            <span class="article-topic">Kalastus ja Lappi</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="luonto" data-full="img/kirjoitukset/10-gorillojen-kanssa-retkella-iso.jpg" data-alt="Gorillojen kanssa retkellä – Meän Tornionlaakso 23.7.2023" data-caption="Gorillojen kanssa retkellä · Meän Tornionlaakso 23.7.2023">
+          <img src="img/kirjoitukset/10-gorillojen-kanssa-retkella.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 23.7.2023</span>
+            <span class="article-title">Gorillojen kanssa retkellä</span>
+            <span class="article-topic">Luonto</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="luonto" data-full="img/kirjoitukset/11-luonnon-armoilla-luonto-armoillamme-iso.jpg" data-alt="Luonnon armoilla – luonto armoillamme – Lounais-Lappi 8.1.2025" data-caption="Luonnon armoilla – luonto armoillamme · Lounais-Lappi 8.1.2025">
+          <img src="img/kirjoitukset/11-luonnon-armoilla-luonto-armoillamme.jpg" alt="" loading="lazy" width="480" height="228">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 8.1.2025</span>
+            <span class="article-title">Luonnon armoilla – luonto armoillamme</span>
+            <span class="article-topic">Luonto</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="oma-historiamme" data-full="img/kirjoitukset/12-sata-vuotta-tasa-arvoa-nyt-suunta-on-kaa-iso.jpg" data-alt="Sata vuotta tasa-arvoa – nyt suunta on kääntynyt – Kaleva 1.6.2026" data-caption="Sata vuotta tasa-arvoa – nyt suunta on kääntynyt · Kaleva 1.6.2026">
+          <img src="img/kirjoitukset/12-sata-vuotta-tasa-arvoa-nyt-suunta-on-kaa.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 1.6.2026</span>
+            <span class="article-title">Sata vuotta tasa-arvoa – nyt suunta on kääntynyt</span>
+            <span class="article-topic">Oma historiamme</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="oma-historiamme" data-full="img/kirjoitukset/13-sovintopolitiikka-oli-todellista-iso.jpg" data-alt="Sovintopolitiikka oli todellista – Lapin Kansa 9.3.2026" data-caption="Sovintopolitiikka oli todellista · Lapin Kansa 9.3.2026">
+          <img src="img/kirjoitukset/13-sovintopolitiikka-oli-todellista.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 9.3.2026</span>
+            <span class="article-title">Sovintopolitiikka oli todellista</span>
+            <span class="article-topic">Oma historiamme</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="perheet" data-full="img/kirjoitukset/14-hallituksen-toimet-alentavat-syntyvyytta-iso.jpg" data-alt="Hallituksen toimet alentavat syntyvyyttä – Kaleva 15.7.2025" data-caption="Hallituksen toimet alentavat syntyvyyttä · Kaleva 15.7.2025">
+          <img src="img/kirjoitukset/14-hallituksen-toimet-alentavat-syntyvyytta.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 15.7.2025</span>
+            <span class="article-title">Hallituksen toimet alentavat syntyvyyttä</span>
+            <span class="article-topic">Perheet</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="puolueet" data-full="img/kirjoitukset/15-mika-on-moraalittomin-puolue-iso.jpg" data-alt="Mikä on moraalittomin puolue? – Lapin Kansa 22.3.2024" data-caption="Mikä on moraalittomin puolue? · Lapin Kansa 22.3.2024">
+          <img src="img/kirjoitukset/15-mika-on-moraalittomin-puolue.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 22.3.2024</span>
+            <span class="article-title">Mikä on moraalittomin puolue?</span>
+            <span class="article-topic">Puolueet</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="puolueet" data-full="img/kirjoitukset/16-tunteisiin-vetoaminen-perussuomalaisessa-iso.jpg" data-alt="Tunteisiin vetoaminen perussuomalaisessa puheessa – Lounais-Lappi 12.10.2023" data-caption="Tunteisiin vetoaminen perussuomalaisessa puheessa · Lounais-Lappi 12.10.2023">
+          <img src="img/kirjoitukset/16-tunteisiin-vetoaminen-perussuomalaisessa.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 12.10.2023</span>
+            <span class="article-title">Tunteisiin vetoaminen perussuomalaisessa puheessa</span>
+            <span class="article-topic">Puolueet</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="puolueet" data-full="img/kirjoitukset/17-missa-on-keskustan-paikka-iso.jpg" data-alt="Missä on keskustan paikka? – Lapin Kansa 15.6.2026" data-caption="Missä on keskustan paikka? · Lapin Kansa 15.6.2026">
+          <img src="img/kirjoitukset/17-missa-on-keskustan-paikka.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 15.6.2026</span>
+            <span class="article-title">Missä on keskustan paikka?</span>
+            <span class="article-topic">Puolueet</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="asuntopolitiikka" data-full="img/kirjoitukset/18-asuntopolitiikan-alennustila-iso.jpg" data-alt="Asuntopolitiikan alennustila – Uusi Rovaniemi 6.5.2026" data-caption="Asuntopolitiikan alennustila · Uusi Rovaniemi 6.5.2026">
+          <img src="img/kirjoitukset/18-asuntopolitiikan-alennustila.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Uusi Rovaniemi · 6.5.2026</span>
+            <span class="article-title">Asuntopolitiikan alennustila</span>
+            <span class="article-topic">Asuntopolitiikka</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="asuntopolitiikka" data-full="img/kirjoitukset/19-kaupunki-vastuussa-asunto-oloista-iso.jpg" data-alt="Kaupunki vastuussa asunto-oloista – Uusi Rovaniemi 4.12.2024" data-caption="Kaupunki vastuussa asunto-oloista · Uusi Rovaniemi 4.12.2024">
+          <img src="img/kirjoitukset/19-kaupunki-vastuussa-asunto-oloista.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Uusi Rovaniemi · 4.12.2024</span>
+            <span class="article-title">Kaupunki vastuussa asunto-oloista</span>
+            <span class="article-topic">Asuntopolitiikka</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="asuntopolitiikka" data-full="img/kirjoitukset/20-asuntopolitiikka-hukassa-iso.jpg" data-alt="Asuntopolitiikka hukassa – Lapin Kansa 22.5.2026" data-caption="Asuntopolitiikka hukassa · Lapin Kansa 22.5.2026">
+          <img src="img/kirjoitukset/20-asuntopolitiikka-hukassa.jpg" alt="" loading="lazy" width="480" height="166">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 22.5.2026</span>
+            <span class="article-title">Asuntopolitiikka hukassa</span>
+            <span class="article-topic">Asuntopolitiikka</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="talous" data-full="img/kirjoitukset/21-yhteiskuntamme-suurin-ongelma-iso.jpg" data-alt="Yhteiskuntamme suurin ongelma? – Lounais-Lappi 17.6.2026" data-caption="Yhteiskuntamme suurin ongelma? · Lounais-Lappi 17.6.2026">
+          <img src="img/kirjoitukset/21-yhteiskuntamme-suurin-ongelma.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 17.6.2026</span>
+            <span class="article-title">Yhteiskuntamme suurin ongelma?</span>
+            <span class="article-topic">Talous</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="talous" data-full="img/kirjoitukset/22-velalla-ja-veroilla-peloteltu-kansa-iso.jpg" data-alt="Velalla ja veroilla peloteltu kansa – Lounais-Lappi 8.4.2026" data-caption="Velalla ja veroilla peloteltu kansa · Lounais-Lappi 8.4.2026">
+          <img src="img/kirjoitukset/22-velalla-ja-veroilla-peloteltu-kansa.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 8.4.2026</span>
+            <span class="article-title">Velalla ja veroilla peloteltu kansa</span>
+            <span class="article-topic">Talous</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="talous" data-full="img/kirjoitukset/23-talouspolitiikan-kaanne-on-mahdollinen-iso.jpg" data-alt="Talouspolitiikan käänne on mahdollinen – Lounais-Lappi 18.2.2026" data-caption="Talouspolitiikan käänne on mahdollinen · Lounais-Lappi 18.2.2026">
+          <img src="img/kirjoitukset/23-talouspolitiikan-kaanne-on-mahdollinen.jpg" alt="" loading="lazy" width="480" height="223">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 18.2.2026</span>
+            <span class="article-title">Talouspolitiikan käänne on mahdollinen</span>
+            <span class="article-topic">Talous</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="talous" data-full="img/kirjoitukset/24-progressiivinen-verotus-on-hyvinvointiva-iso.jpg" data-alt="Progressiivinen verotus on hyvinvointivaltion pelastus – Kaleva 25.1.2026" data-caption="Progressiivinen verotus on hyvinvointivaltion pelastus · Kaleva 25.1.2026">
+          <img src="img/kirjoitukset/24-progressiivinen-verotus-on-hyvinvointiva.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 25.1.2026</span>
+            <span class="article-title">Progressiivinen verotus on hyvinvointivaltion pelastus</span>
+            <span class="article-topic">Talous</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="talous" data-full="img/kirjoitukset/25-mika-metsateollisuutta-ja-teollisuuspoli-iso.jpg" data-alt="Mikä metsäteollisuutta ja teollisuuspolitiikkaa vaivaa? – Kaleva 17.8.2026" data-caption="Mikä metsäteollisuutta ja teollisuuspolitiikkaa vaivaa? · Kaleva 17.8.2026">
+          <img src="img/kirjoitukset/25-mika-metsateollisuutta-ja-teollisuuspoli.jpg" alt="" loading="lazy" width="480" height="293">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 17.8.2026</span>
+            <span class="article-title">Mikä metsäteollisuutta ja teollisuuspolitiikkaa vaivaa?</span>
+            <span class="article-topic">Talous</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="terveys" data-full="img/kirjoitukset/26-laakarit-ja-sairaanhoitajat-vaarassa-pai-iso.jpg" data-alt="Lääkärit ja sairaanhoitajat väärässä paikassa – Kaleva 1.10.2024" data-caption="Lääkärit ja sairaanhoitajat väärässä paikassa · Kaleva 1.10.2024">
+          <img src="img/kirjoitukset/26-laakarit-ja-sairaanhoitajat-vaarassa-pai.jpg" alt="" loading="lazy" width="480" height="248">
+          <span class="article-body">
+            <span class="article-meta">Kaleva · 1.10.2024</span>
+            <span class="article-title">Lääkärit ja sairaanhoitajat väärässä paikassa</span>
+            <span class="article-topic">Terveys</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="terveys" data-full="img/kirjoitukset/27-terveydenhuollon-hapaisya-iso.jpg" data-alt="Terveydenhuollon häpäisyä – Lounais-Lappi 20.5.2026" data-caption="Terveydenhuollon häpäisyä · Lounais-Lappi 20.5.2026">
+          <img src="img/kirjoitukset/27-terveydenhuollon-hapaisya.jpg" alt="" loading="lazy" width="480" height="216">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 20.5.2026</span>
+            <span class="article-title">Terveydenhuollon häpäisyä</span>
+            <span class="article-topic">Terveys</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="tyoelama" data-full="img/kirjoitukset/28-miksi-yhteistoiminnan-merkitysta-tyoelam-iso.jpg" data-alt="Miksi yhteistoiminnan merkitystä työelämässä ei ymmärretä? – Lounais-Lappi 22.8.2024" data-caption="Miksi yhteistoiminnan merkitystä työelämässä ei ymmärretä? · Lounais-Lappi 22.8.2024">
+          <img src="img/kirjoitukset/28-miksi-yhteistoiminnan-merkitysta-tyoelam.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 22.8.2024</span>
+            <span class="article-title">Miksi yhteistoiminnan merkitystä työelämässä ei ymmärretä?</span>
+            <span class="article-topic">Työelämä</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="tyoelama" data-full="img/kirjoitukset/29-tyontekijoiden-asema-kurjistuu-iso.jpg" data-alt="Työntekijöiden asema kurjistuu – Lapin Kansa 9.2.2026" data-caption="Työntekijöiden asema kurjistuu · Lapin Kansa 9.2.2026">
+          <img src="img/kirjoitukset/29-tyontekijoiden-asema-kurjistuu.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 9.2.2026</span>
+            <span class="article-title">Työntekijöiden asema kurjistuu</span>
+            <span class="article-topic">Työelämä</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="yhteiskunnan-kolme-hallintajarjestelmaa" data-full="img/kirjoitukset/30-kolmatta-tukijalkaa-tarvitaan-iso.jpg" data-alt="Kolmatta tukijalkaa tarvitaan – Meän Tornionlaakso 24.6.2026" data-caption="Kolmatta tukijalkaa tarvitaan · Meän Tornionlaakso 24.6.2026">
+          <img src="img/kirjoitukset/30-kolmatta-tukijalkaa-tarvitaan.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 24.6.2026</span>
+            <span class="article-title">Kolmatta tukijalkaa tarvitaan</span>
+            <span class="article-topic">Yhteiskunnan kolme hallintajärjestelmää</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="yhteiskuntafilosofia" data-full="img/kirjoitukset/31-platonin-varoitus-osui-oikeaan-suomessa-iso.jpg" data-alt="Platonin varoitus osui oikeaan Suomessa – Lapin Kansa 3.8.2026" data-caption="Platonin varoitus osui oikeaan Suomessa · Lapin Kansa 3.8.2026">
+          <img src="img/kirjoitukset/31-platonin-varoitus-osui-oikeaan-suomessa.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Lapin Kansa · 3.8.2026</span>
+            <span class="article-title">Platonin varoitus osui oikeaan Suomessa</span>
+            <span class="article-topic">Yhteiskuntafilosofia</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="yhteiskuntafilosofia" data-full="img/kirjoitukset/32-maailman-parantamisessa-tulee-kayttaa-mi-iso.jpg" data-alt="Maailman parantamisessa tulee käyttää mielikuvitusta – Meän Tornionlaakso 17.12.2025" data-caption="Maailman parantamisessa tulee käyttää mielikuvitusta · Meän Tornionlaakso 17.12.2025">
+          <img src="img/kirjoitukset/32-maailman-parantamisessa-tulee-kayttaa-mi.jpg" alt="" loading="lazy" width="480" height="300">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 17.12.2025</span>
+            <span class="article-title">Maailman parantamisessa tulee käyttää mielikuvitusta</span>
+            <span class="article-topic">Yhteiskuntafilosofia</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="yhteiskuntafilosofia" data-full="img/kirjoitukset/33-aika-tarkistaa-puhe-kapitalismista-ja-so-iso.jpg" data-alt="Aika tarkistaa puhe kapitalismista ja sosialismista – Lounais-Lappi 9.9.2026" data-caption="Aika tarkistaa puhe kapitalismista ja sosialismista · Lounais-Lappi 9.9.2026">
+          <img src="img/kirjoitukset/33-aika-tarkistaa-puhe-kapitalismista-ja-so.jpg" alt="" loading="lazy" width="480" height="207">
+          <span class="article-body">
+            <span class="article-meta">Lounais-Lappi · 9.9.2026</span>
+            <span class="article-title">Aika tarkistaa puhe kapitalismista ja sosialismista</span>
+            <span class="article-topic">Yhteiskuntafilosofia</span>
+          </span>
+        </button>
+        <button type="button" class="article" data-topic="yhteiskuntafilosofia" data-full="img/kirjoitukset/34-reilu-peli-ja-kansainvalisyys-ihmiskunna-iso.jpg" data-alt="Reilu peli ja kansainvälisyys – ihmiskunnan pelastus – Meän Tornionlaakso 1.3.2023" data-caption="Reilu peli ja kansainvälisyys – ihmiskunnan pelastus · Meän Tornionlaakso 1.3.2023">
+          <img src="img/kirjoitukset/34-reilu-peli-ja-kansainvalisyys-ihmiskunna.jpg" alt="" loading="lazy" width="480" height="233">
+          <span class="article-body">
+            <span class="article-meta">Meän Tornionlaakso · 1.3.2023</span>
+            <span class="article-title">Reilu peli ja kansainvälisyys – ihmiskunnan pelastus</span>
+            <span class="article-topic">Yhteiskuntafilosofia</span>
+          </span>
+        </button>
+      </div>
+      <div class="articles-more">
+        <button type="button" class="btn btn-small" id="show-more" hidden>Näytä lisää</button>
       </div>
     </div>
   </section>
@@ -218,15 +510,15 @@
     </figure>
   </dialog>
 
-  <!-- TAPAHTUMAT -->
-  <section id="tapahtumat" class="section section-tint">
+  <!-- LÄHDE MUKAAN: tapahtumat + somekanavat (navigaation "Lähde mukaan" -painike vie tänne) -->
+  <section id="yhteys" class="section section-tint">
     <div class="wrap">
-      <p class="eyebrow">Tapahtumat</p>
-      <h2 class="display display-md">Tavataan!</h2>
-
       <!-- Uusi tapahtuma: kopioi <article class="event"> ja vaihda data-date (VVVV-KK-PP).
            Menneet tapahtumat piiloutuvat automaattisesti. -->
       <div class="events-layout">
+      <div class="events-col">
+      <p class="eyebrow">Lähde mukaan</p>
+      <h2 class="display display-md">Tavataan!</h2>
       <div class="events">
         <article class="event" data-date="2026-10-02">
           <div class="event-date" aria-hidden="true">
@@ -242,7 +534,26 @@
             <p>Tervetuloa tapaamaan Kari Kannalaa vaalikampanjan avaukseen. Paikan päällä on myös pientä tarjoilua.</p>
           </div>
         </article>
-        <p class="events-empty" hidden>Uusia tapahtumia tulossa pian – seuraa Instagramissa <a href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener">@kari_kannala</a>.</p>
+        <p class="events-empty" hidden>Uusia tapahtumia tulossa pian – seuraa somessa, niin kuulet niistä ensimmäisenä.</p>
+      </div>
+      <!-- Somekanavat: kampanjan tärkein toimintakehotus -->
+      <div class="follow">
+        <p class="follow-text">Seuraa kampanjaa somessa ja jaa viestiä eteenpäin.</p>
+        <div class="social-buttons">
+          <a class="social-btn" href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener">
+            <span class="social-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <span class="social-btn-text"><span class="social-btn-name">Instagram</span><span class="social-btn-handle">@kari_kannala</span></span>
+          </a>
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61594486961250" target="_blank" rel="noopener">
+            <span class="social-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4z"/></svg></span>
+            <span class="social-btn-text"><span class="social-btn-name">Facebook</span><span class="social-btn-handle">Kari Kannala</span></span>
+          </a>
+          <a class="social-btn" href="https://www.tiktok.com/@kari.kannala" target="_blank" rel="noopener">
+            <span class="social-btn-icon"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M16.6 2h-3.4v13.3a2.9 2.9 0 1 1-2.1-2.8V9a6.3 6.3 0 1 0 5.5 6.3V8.6a8 8 0 0 0 4.4 1.4V6.6a4.5 4.5 0 0 1-4.4-4.6z"/></svg></span>
+            <span class="social-btn-text"><span class="social-btn-name">TikTok</span><span class="social-btn-handle">@kari.kannala</span></span>
+          </a>
+        </div>
+      </div>
       </div>
       <div class="event-photo">
         <button type="button" class="gallery-item" data-full="img/kampanja-1.jpg" data-caption="Tervolan maalaismarkkinoilla Vuokko Vakkurin kanssa. Hän on vaalikampanjassani mukana." data-alt="Kari Kannala ja Vuokko Vakkuri Tervolan maalaismarkkinoilla">
@@ -254,34 +565,22 @@
     </div>
   </section>
 
-  <!-- YHTEYS -->
-  <section id="yhteys" class="contact">
-    <svg class="wave wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,60 C540,130 1080,-10 1440,50 L1440,0 L0,0 Z" fill="#FFF0F6"/>
-    </svg>
-    <div class="wrap contact-inner">
-      <div>
-        <h2 class="display display-md">Lähde<br>mukaan</h2>
-        <p class="lead">Haluan rakentaa Lapin, joka ei tyydy selviytymään vaan elää omilla ehdoillaan itsetietoisena. Jaa viestiä eteenpäin ja tule mukaan tekemään oikeudenmukaisempaa Suomea.</p>
-      </div>
-      <img class="contact-scenery" src="img/maisema.png" alt="" loading="lazy" width="1400" height="763">
-    </div>
-  </section>
-
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <img src="img/logo-valkoinen.png" alt="Vasemmistoliitto" class="footer-logo" width="500" height="458">
-    <div>
-      <p class="footer-name"><strong>Kari Kannala</strong><span class="sep" aria-hidden="true"> · </span><span>Vasemmistoliitto</span></p>
+  <svg class="wave wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,60 C540,130 1080,-10 1440,50 L1440,0 L0,0 Z" fill="#FFF0F6"/>
+  </svg>
+  <div class="wrap footer-grid">
+    <div class="footer-text">
+      <p class="footer-quote">”Haluan rakentaa Lapin, joka ei tyydy selviytymään vaan elää omilla ehdoillaan itsetietoisena.”</p>
+      <div class="footer-brand">
+        <img src="img/logo-valkoinen.png" alt="Vasemmistoliitto" class="footer-logo" width="500" height="458">
+        <p class="footer-name"><strong>Kari Kannala</strong><span>Vasemmistoliitto · Eduskuntaan</span></p>
+      </div>
       <!-- Myöhemmin: vaalipiiri, ehdokasnumero ja vaalimainonnan maksaja -->
     </div>
-    <a class="social" href="https://www.instagram.com/kari_kannala/" target="_blank" rel="noopener" aria-label="Kari Kannala Instagramissa">
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-    </a>
+    <img class="footer-scenery" src="img/maisema.png" alt="" loading="lazy" width="1400" height="763">
   </div>
 </footer>
 
